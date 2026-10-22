@@ -15,7 +15,7 @@ class CustomSpaceButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.sizeOf(context);
-    final shortSide = screenSize.shortestSide;
+    final shortSide = screenSize.shortestSide.clamp(1.0, double.infinity);
 
     return SizedBox(
       width: screenSize.width * 0.84,

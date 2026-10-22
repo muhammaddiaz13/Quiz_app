@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/quiz_provider.dart';
+import 'quiz_screen.dart';
 import '../utils/app_colors.dart';
 import '../widgets/custom_space_button.dart';
 
@@ -21,14 +24,22 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 
   void _startMission() {
-    // ignore: avoid_print
-    print(_nameController.text.trim());
+    final name = _nameController.text.trim();
+    if (name.isEmpty) {
+      return;
+    }
+
+    context.read<QuizProvider>().setUserName(name);
+    Navigator.push(
+      context,
+      MaterialPageRoute<void>(builder: (context) => const QuizScreen()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.sizeOf(context);
-    final shortSide = screenSize.shortestSide;
+    final shortSide = screenSize.shortestSide.clamp(1.0, double.infinity);
 
     return Scaffold(
       body: DecoratedBox(
