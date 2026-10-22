@@ -27,4 +27,4 @@
 <img width="721" height="1600" alt="WhatsApp Image 2026-10-22 at 6 55 35 PM" src="https://github.com/user-attachments/assets/21c7fff5-3324-48a3-903d-1da3439cfcb4" />
 
 - **Link Mockup/Prototype:** https://www.figma.com/design/OECIl7A5wXrVTbWMrvnMEg/Untitled?node-id=0-1&t=kQgaaWqW8IHLmdTo-1
-- **Link Video Presentasi:** [Masukkan link Google Drive video presentasimu di sini]
+- **Link Video Presentasi:** [belum ada]
