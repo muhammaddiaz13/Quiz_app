@@ -18,9 +18,13 @@
 
 ## C. Dokumentasi
 - **Credit Aset:** 
-  - Ikon/Gambar Roket: [Sebutkan sumbernya, misal: Flaticon / Freepik]
+  - Ikon/Gambar Roket: Pngtree
   - Font: Google Fonts (Space Grotesk / Orbitron)
+
 - **Screenshot Aplikasi:**
-  *(Tambahkan screenshot halaman Welcome, Kuis, dan Result di sini)*
-- **Link Mockup/Prototype:** [Masukkan link Figma kamu di sini]
+<img width="721" height="1600" alt="WhatsApp Image 2026-10-22 at 6 53 48 PM" src="https://github.com/user-attachments/assets/ce78736a-652f-4b86-82b6-4b7bf4a15cdb" />
+<img width="721" height="1600" alt="WhatsApp Image 2026-10-22 at 6 54 45 PM" src="https://github.com/user-attachments/assets/d978a448-9d80-443e-aef8-921628a50b1f" />
+<img width="721" height="1600" alt="WhatsApp Image 2026-10-22 at 6 55 35 PM" src="https://github.com/user-attachments/assets/21c7fff5-3324-48a3-903d-1da3439cfcb4" />
+
+- **Link Mockup/Prototype:** https://www.figma.com/design/OECIl7A5wXrVTbWMrvnMEg/Untitled?node-id=0-1&t=kQgaaWqW8IHLmdTo-1
 - **Link Video Presentasi:** [Masukkan link Google Drive video presentasimu di sini]
