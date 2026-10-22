@@ -1,17 +1,26 @@
-# quiz_app
+# Space Quiz - Aplikasi Kuis Pilihan Ganda
 
-A new Flutter project.
+## A. Identitas Mahasiswa
+- **Nama:** Muhammad Diaz William Bevan
+- **NIM:** 241401088
+- **Lab:** Pemrograman Mobile (PM 1)
 
-## Getting Started
+## B. Informasi Aplikasi
+- **Nama Aplikasi:** Space Quiz
+- **Deskripsi Singkat:** Space Quiz adalah aplikasi kuis interaktif bertema penjelajahan luar angkasa yang dirancang menggunakan Flutter. Aplikasi ini menguji pengetahuan pengguna seputar astronomi dasar dengan antarmuka yang modern.
+- **Fitur-fitur yang tersedia:**
+  - Input nama pengguna (Astronot).
+  - 5 Pertanyaan kuis seputar luar angkasa.
+  - State Management menggunakan Provider (progres tidak hilang saat rotasi layar).
+  - Perhitungan skor akhir secara otomatis.
+  - Dual-Theme (Dark Mode & Light Mode).
+  - Adaptive & Responsive Design (Mendukung ukuran layar HP, Tablet, dan Web).
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## C. Dokumentasi
+- **Credit Aset:** 
+  - Ikon/Gambar Roket: [Sebutkan sumbernya, misal: Flaticon / Freepik]
+  - Font: Google Fonts (Space Grotesk / Orbitron)
+- **Screenshot Aplikasi:**
+  *(Tambahkan screenshot halaman Welcome, Kuis, dan Result di sini)*
+- **Link Mockup/Prototype:** [Masukkan link Figma kamu di sini]
+- **Link Video Presentasi:** [Masukkan link Google Drive video presentasimu di sini]
