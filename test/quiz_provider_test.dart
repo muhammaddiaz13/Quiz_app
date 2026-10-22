@@ -40,5 +40,17 @@ void main() {
       expect(provider.currentQuestionIndex, provider.questions.length);
       expect(provider.score, 0);
     });
+
+    test('resets name, score, and progress for a new mission', () {
+      final provider = QuizProvider();
+      provider.setUserName('Alya');
+      provider.answerQuestion(provider.questions.first.correctAnswerIndex);
+
+      provider.resetQuiz();
+
+      expect(provider.userName, isEmpty);
+      expect(provider.currentQuestionIndex, 0);
+      expect(provider.score, 0);
+    });
   });
 }

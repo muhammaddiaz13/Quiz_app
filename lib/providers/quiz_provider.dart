@@ -61,4 +61,11 @@ class QuizProvider extends ChangeNotifier {
     _currentQuestionIndex++;
     notifyListeners();
   }
+
+  void resetQuiz() {
+    _userName = '';
+    _currentQuestionIndex = 0;
+    _score = 0;
+    notifyListeners();
+  }
 }
