@@ -52,5 +52,15 @@ void main() {
       expect(provider.currentQuestionIndex, 0);
       expect(provider.score, 0);
     });
+
+    test('toggles between dark and light themes', () {
+      final provider = QuizProvider();
+
+      expect(provider.isDarkMode, isTrue);
+      provider.toggleTheme();
+      expect(provider.isDarkMode, isFalse);
+      provider.toggleTheme();
+      expect(provider.isDarkMode, isTrue);
+    });
   });
 }

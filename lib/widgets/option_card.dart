@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/app_colors.dart';
-
 class OptionCard extends StatelessWidget {
   const OptionCard({
     required this.index,
@@ -17,16 +15,17 @@ class OptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.sizeOf(context);
-    final shortSide = screenSize.shortestSide.clamp(1.0, double.infinity);
+    final shortSide = screenSize.shortestSide.clamp(1.0, 600.0);
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Material(
-      color: AppColors.starlightWhite.withValues(alpha: 0.07),
+      color: colorScheme.onSurface.withValues(alpha: 0.07),
       borderRadius: BorderRadius.circular(shortSide * 0.035),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(shortSide * 0.035),
-        splashColor: AppColors.nebulaPurple.withValues(alpha: 0.3),
-        highlightColor: AppColors.nebulaPurple.withValues(alpha: 0.12),
+        splashColor: colorScheme.primary.withValues(alpha: 0.3),
+        highlightColor: colorScheme.primary.withValues(alpha: 0.12),
         child: Container(
           constraints: BoxConstraints(minHeight: screenSize.height * 0.075),
           padding: EdgeInsets.symmetric(
@@ -36,7 +35,7 @@ class OptionCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(shortSide * 0.035),
             border: Border.all(
-              color: AppColors.starlightWhite.withValues(alpha: 0.22),
+              color: colorScheme.onSurface.withValues(alpha: 0.22),
             ),
           ),
           child: Row(
@@ -47,12 +46,12 @@ class OptionCard extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.nebulaPurple.withValues(alpha: 0.22),
+                  color: colorScheme.primary.withValues(alpha: 0.22),
                 ),
                 child: Text(
                   String.fromCharCode(65 + index),
                   style: TextStyle(
-                    color: AppColors.starlightWhite,
+                    color: colorScheme.onSurface,
                     fontSize: shortSide * 0.042,
                     fontWeight: FontWeight.w700,
                   ),
@@ -63,14 +62,14 @@ class OptionCard extends StatelessWidget {
                 child: Text(
                   optionText,
                   style: TextStyle(
-                    color: AppColors.starlightWhite,
+                    color: colorScheme.onSurface,
                     fontSize: shortSide * 0.045,
                   ),
                 ),
               ),
               Icon(
                 Icons.chevron_right_rounded,
-                color: AppColors.starlightWhite.withValues(alpha: 0.65),
+                color: colorScheme.onSurface.withValues(alpha: 0.65),
                 size: shortSide * 0.065,
               ),
             ],

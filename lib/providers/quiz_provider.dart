@@ -6,10 +6,12 @@ class QuizProvider extends ChangeNotifier {
   String _userName = '';
   int _currentQuestionIndex = 0;
   int _score = 0;
+  bool _isDarkMode = true;
 
   String get userName => _userName;
   int get currentQuestionIndex => _currentQuestionIndex;
   int get score => _score;
+  bool get isDarkMode => _isDarkMode;
 
   final List<Question> questions = const [
     Question(
@@ -41,6 +43,11 @@ class QuizProvider extends ChangeNotifier {
 
   void setUserName(String name) {
     _userName = name;
+    notifyListeners();
+  }
+
+  void toggleTheme() {
+    _isDarkMode = !_isDarkMode;
     notifyListeners();
   }
 

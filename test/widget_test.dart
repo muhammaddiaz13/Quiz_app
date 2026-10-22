@@ -8,6 +8,44 @@ import 'package:quiz_app/screens/result_screen.dart';
 import 'package:quiz_app/screens/welcome_screen.dart';
 
 void main() {
+  testWidgets('keeps screen content constrained on wide displays', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1600, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(const SpaceQuizApp());
+    expect(
+      tester.getSize(find.byType(SingleChildScrollView).first).width,
+      lessThanOrEqualTo(600),
+    );
+
+    await tester.enterText(find.byType(TextField), 'Alya');
+    await tester.tap(find.text('Mulai Misi'));
+    await tester.pumpAndSettle();
+    expect(
+      tester.getSize(find.byType(SingleChildScrollView).first).width,
+      lessThanOrEqualTo(800),
+    );
+
+    for (final answer in [
+      'Mars',
+      'Matahari',
+      'Jupiter',
+      'Bima Sakti',
+      'Satelit alami',
+    ]) {
+      await tester.tap(find.text(answer));
+      await tester.pumpAndSettle();
+    }
+    expect(
+      tester.getSize(find.byType(SingleChildScrollView).first).width,
+      lessThanOrEqualTo(600),
+    );
+  });
+
   testWidgets('answers all questions and can restart from the result screen', (
     tester,
   ) async {
@@ -17,6 +55,17 @@ void main() {
     expect(find.text('Mulai Misi'), findsOneWidget);
     expect(find.byType(TextField), findsOneWidget);
     expect(find.text('Misi Berlangsung'), findsNothing);
+
+    expect(
+      Theme.of(tester.element(find.byType(WelcomeScreen))).brightness,
+      Brightness.dark,
+    );
+    await tester.tap(find.byIcon(Icons.light_mode_rounded));
+    await tester.pumpAndSettle();
+    expect(
+      Theme.of(tester.element(find.byType(WelcomeScreen))).brightness,
+      Brightness.light,
+    );
 
     await tester.tap(find.text('Mulai Misi'));
     await tester.pumpAndSettle();

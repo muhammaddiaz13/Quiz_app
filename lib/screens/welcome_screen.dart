@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/quiz_provider.dart';
-import 'quiz_screen.dart';
-import '../utils/app_colors.dart';
 import '../widgets/custom_space_button.dart';
+import '../widgets/theme_toggle_button.dart';
+import 'quiz_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -39,84 +39,91 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.sizeOf(context);
-    final shortSide = screenSize.shortestSide.clamp(1.0, double.infinity);
+    final shortSide = screenSize.shortestSide.clamp(1.0, 600.0);
+    final colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
+      appBar: AppBar(actions: const [ThemeToggleButton()]),
       body: DecoratedBox(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [AppColors.cosmicBlue, AppColors.deepSpaceBlue],
+            colors: [colorScheme.surfaceContainerHighest, colorScheme.surface],
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: SizedBox(
-              width: screenSize.width,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenSize.width * 0.08,
-                  vertical: screenSize.height * 0.04,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(height: screenSize.height * 0.05),
-                    Icon(
-                      Icons.rocket_launch_rounded,
-                      size: shortSide * 0.15,
-                      color: AppColors.starlightWhite,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: LayoutBuilder(
+                builder: (context, constraints) => SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: constraints.maxWidth * 0.08,
+                      vertical: screenSize.height * 0.035,
                     ),
-                    SizedBox(height: screenSize.height * 0.025),
-                    Text(
-                      'Space Quiz',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.spaceGrotesk(
-                        color: AppColors.starlightWhite,
-                        fontSize: shortSide * 0.08,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    SizedBox(height: screenSize.height * 0.012),
-                    Text(
-                      'Siap menjelajahi luasnya alam semesta?',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: AppColors.starlightWhite.withValues(alpha: 0.8),
-                        fontSize: shortSide * 0.042,
-                      ),
-                    ),
-                    SizedBox(height: screenSize.height * 0.05),
-                    TextField(
-                      controller: _nameController,
-                      textInputAction: TextInputAction.done,
-                      onSubmitted: (_) => _startMission(),
-                      style: TextStyle(
-                        color: AppColors.starlightWhite,
-                        fontSize: shortSide * 0.044,
-                      ),
-                      decoration: InputDecoration(
-                        hintText: 'Masukkan nama astronot',
-                        prefixIcon: Icon(
-                          Icons.person_outline_rounded,
-                          color: AppColors.starlightWhite.withValues(
-                            alpha: 0.75,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: screenSize.height * 0.025),
+                        Image.asset(
+                          'assets/images/rocket.png',
+                          width: shortSide * 0.2,
+                          height: shortSide * 0.2,
+                          fit: BoxFit.contain,
+                        ),
+                        SizedBox(height: screenSize.height * 0.025),
+                        Text(
+                          'Space Quiz',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.spaceGrotesk(
+                            color: colorScheme.onSurface,
+                            fontSize: shortSide * 0.08,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: screenSize.width * 0.05,
-                          vertical: screenSize.height * 0.022,
+                        SizedBox(height: screenSize.height * 0.012),
+                        Text(
+                          'Siap menjelajahi luasnya alam semesta?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: colorScheme.onSurface.withValues(alpha: 0.8),
+                            fontSize: shortSide * 0.042,
+                          ),
                         ),
-                      ),
+                        SizedBox(height: screenSize.height * 0.05),
+                        TextField(
+                          controller: _nameController,
+                          textInputAction: TextInputAction.done,
+                          onSubmitted: (_) => _startMission(),
+                          style: TextStyle(
+                            color: colorScheme.onSurface,
+                            fontSize: shortSide * 0.044,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Masukkan nama astronot',
+                            prefixIcon: Icon(
+                              Icons.person_outline_rounded,
+                              color: colorScheme.onSurface.withValues(
+                                alpha: 0.75,
+                              ),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: constraints.maxWidth * 0.05,
+                              vertical: screenSize.height * 0.022,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: screenSize.height * 0.022),
+                        CustomSpaceButton(
+                          label: 'Mulai Misi',
+                          onPressed: _startMission,
+                        ),
+                        SizedBox(height: screenSize.height * 0.04),
+                      ],
                     ),
-                    SizedBox(height: screenSize.height * 0.022),
-                    CustomSpaceButton(
-                      label: 'Mulai Misi',
-                      onPressed: _startMission,
-                    ),
-                    SizedBox(height: screenSize.height * 0.04),
-                  ],
+                  ),
                 ),
               ),
             ),
