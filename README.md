@@ -2,8 +2,8 @@
 
 ## A. Identitas Mahasiswa
 - **Nama:** Muhammad Diaz William Bevan
-- **NIM :** 241401088
-- **Lab :** Pemrograman Mobile (PM 1)
+- **NIM  :** 241401088
+- **Lab  :** Pemrograman Mobile (PM 1)
 
 ## B. Informasi Aplikasi
 - **Nama Aplikasi:** Space Quiz
@@ -32,4 +32,4 @@
 ---
 
 - **Link Mockup/Prototype:** https://www.figma.com/design/OECIl7A5wXrVTbWMrvnMEg/Untitled?node-id=0-1&t=kQgaaWqW8IHLmdTo-1
-- **Link Video Presentasi:** https://drive.google.com/drive/folders/1vDfNiSVP8MWWevJ8GlgPOL6bUawjjGxd?usp=sharing
+- **Link Video Presentasi :** https://drive.google.com/drive/folders/1vDfNiSVP8MWWevJ8GlgPOL6bUawjjGxd?usp=sharing
